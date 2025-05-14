@@ -1,0 +1,61 @@
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"]
+niveles_azucar = [130, 160, 95, 175, 160]
+niveles_sal = [2000, 2400, 1800, 2400, 2700]
+presion_arterial = [115, 130, 110, 125, 175]
+
+try:
+    suma_na = sum(niveles_azucar)
+    suma_ns = sum(niveles_sal)
+    suma_pa = sum(presion_arterial)
+
+    promedio_pa = suma_pa / 5
+    promedio_na = suma_na / 5
+    promedio_ns = suma_ns / 5
+except Exception as e:
+    print(f"Error al calcular los promedios: {e}")
+    exit(1)
+
+while True:
+    try:
+        print("\n¿Qué desea evaluar?")
+        print("1) Niveles de presión arterial mayores a 120")
+        print("2) Mostrar promedios de todos los niveles")
+        print("3) Mostrar días con un consumo alto de sal (> 2300 mg)")
+        print("4) Mostrar los días con un nivel alto de azúcar (> 140 mg/dL)")
+        print("5) Salir")
+
+        opcion = input("Ingrese el número de la opción: ").strip()
+
+        if opcion == "1":
+            print("\nPresiones arteriales mayores a 120:")
+            for i in range(len(presion_arterial)):
+                if presion_arterial[i] > 120:
+                    print(f"{dias[i]}: {presion_arterial[i]}")
+
+        elif opcion == "2":
+            print("\nPromedios:")
+            print(f"Presión arterial: {promedio_pa}")
+            print(f"Nivel de azúcar: {promedio_na}")
+            print(f"Nivel de sal: {promedio_ns}")
+
+        elif opcion == "3":
+            print("\nDías con consumo alto de sal (> 2300 mg):")
+            for i in range(len(niveles_sal)):
+                if niveles_sal[i] > 2300:
+                    print(f"{dias[i]}: {niveles_sal[i]} mg")
+
+        elif opcion == "4":
+            print("\nDías con nivel alto de azúcar (> 140 mg/dL):")
+            for i in range(len(niveles_azucar)):
+                if niveles_azucar[i] > 140:
+                    print(f"{dias[i]}: {niveles_azucar[i]} mg/dL")
+
+        elif opcion == "5":
+            print("Saliendo del programa...")
+            break
+
+        else:
+            print("Opción inválida. Intente nuevamente.")
+
+    except Exception as e:
+        print(f"Ocurrió un error: {e}")
