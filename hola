@@ -29,3 +29,10 @@ class casa_sustos(atracciones):
     def mostrar_info(self):
         return f"Casa de Sustos: {self.__nombre}, Capacidad: {self.__capacidad}, Duración: {self.__duracion} min, Número de Habitaciones: {self.__numero_habitaciones}, Nivel de Sustos: {self.__nivel_sustos} estado: {self.__estado}"
 
+try:
+    # Ejemplo de uso que puede generar un error
+    montana = montana_rusa(20, 2, "Raptor", 30, 100)
+    print(montana.mostrar_info())
+except Exception as e:
+    print(f"Ocurrió un error al crear o mostrar la atracción: {e}")
+
