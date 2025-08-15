@@ -1,0 +1,31 @@
+from abc import ABC, abstractmethod
+class atracciones(ABC):
+    @abstractmethod
+    def __init__(self, capacidad, duracion, nombre, estado):
+        self.__capacidad = capacidad
+        self.__duracion = duracion
+        self.__nombre = nombre
+        self.__estado = estado
+class montana_rusa(atracciones):
+    def __init__(self, capacidad, durcion, nombre, altura_maxima, velocidad_maxima):
+        super().__init__(capacidad, durcion, nombre)
+        self.__altura_maxima = altura_maxima
+        self.__velocidad_maxima = velocidad_maxima
+    def mostrar_info(self):
+        return f"Montaña Rusa: {self.__nombre}, Capacidad: {self.__capacidad}, Duración: {self.__duracion} min, Altura Máxima: {self.__altura_maxima} m, Velocidad Máxima: {self.__velocidad_maxima} km/h estado: {self.__estado}"
+
+class tobogan_agua(atracciones):
+    def __init__(self, capacidad, duracion, nombre, longitud, inclinacion):
+        super().__init__(capacidad, duracion, nombre)
+        self.__longitud = longitud
+        self.__inclinacion = inclinacion
+    def mostrar_info(self):
+        return f"Tobogán de Agua: {self.__nombre}, Capacidad: {self.__capacidad}, Duración: {self.__duracion} min, Longitud: {self.__longitud} m, Inclinación: {self.__inclinacion}° estado: {self.__estado}"
+class casa_sustos(atracciones):
+    def __init__(self, capacidad, duracion, nombre, numero_habitaciones, nivel_sustos):
+        super().__init__(capacidad, duracion, nombre)
+        self.__numero_habitaciones = numero_habitaciones
+        self.__nivel_sustos = nivel_sustos
+    def mostrar_info(self):
+        return f"Casa de Sustos: {self.__nombre}, Capacidad: {self.__capacidad}, Duración: {self.__duracion} min, Número de Habitaciones: {self.__numero_habitaciones}, Nivel de Sustos: {self.__nivel_sustos} estado: {self.__estado}"
+
